@@ -66,9 +66,6 @@
             <span class="carousel-control-next-icon"></span>
         </button>
     </div>
-    
-    <!-- Seccion de productos en oferta
-     <h3>{{ special_offers }}</h3>  -->
 
     <!-- Tabla de ofertas -->
     <div class="container my-4">
@@ -82,12 +79,12 @@
                 </tr>
             </thead>
             <tbody>
-                {% for product in special_offers %}
+                {% for offer in special_offers %}
                 <tr>
                     <!-- <td style="width: 120px;"><img src="{{ product.product.image_url }}" width="100px" alt="{{ product.name }}"></td> -->
                     <td style="width: 120px"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/PS2-Versions.jpg/677px-PS2-Versions.jpg" width="100px" alt="{{ product.product_name }}"></td>
-                    <td>{{ product.product_name }}</td>
-                    <td>${{ product.product_offer_cost }}</td>
+                    <td>{{ offer.product_name }}</td>
+                    <td>${{ offer.product_offer_cost }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -107,11 +104,11 @@
                     <div class="card-body">
                         <h5 title="{{ product.product_name}}" class="card-title text truncate">{{ product.product.name }}</h5>
                         <p class="card-text">${{ product.product_cost }}
-                            {% if product.product_is_offer %}
-                                <del style="color: gray;">${{  product.product_full_cost }}</del>
-                                <b>${{ product.product_offer_cost }}</b>
+                            {% if offer.product_is_offer %}
+                                <del style="color: gray;">${{ product.product_full_cost }}</del>
+                                <b>${{ offer.product_offer_cost }}</b>
                             {% else %}
-                                <b>${{ product.product_full_cost }}</b>
+                                <b>${{ offer.product_full_cost }}</b>
                             {% endif %}
                         </p>
                         <button class="btn w-100"> <!-- w-100 es para el espacio de btn-->

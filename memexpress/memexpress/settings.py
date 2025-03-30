@@ -43,9 +43,14 @@ INSTALLED_APPS = [
     'django.contrib.messages', #NO usaremos este
     'django.contrib.staticfiles', #Permite hacer la refer
     'shopapp',
+    'corsheaders',
 ]
 
+#Cors Headers
+CORS_ALLOW_ALL_ORIGINS = True
+
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -124,6 +129,10 @@ USE_TZ = True
 STATIC_URL = 'static/'
 #ESTO ES PARA QUE DJANGO PUEDA VER LOS ARCHIVOS ESTATICOS
 STATICFILES_DIRS = [STATIC_DIR,] #ARREGLO PARA ARCHIVOS ESTATICOS
+
+#Definir hacia dónde redirige la pantalla de login y logout
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

@@ -16,11 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from shopapp.views import index, about
+from shopapp.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('shopapp/', include('shopapp.urls')),
-    path('', index, name='index'),
-    path('about/', about, name='about'),
+    path('', index),
+    path('api/', include('api.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]

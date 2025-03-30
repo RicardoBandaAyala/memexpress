@@ -38,11 +38,15 @@ class HistoricalCost(models.Model):
 
 #clase para los contactos
 class Contacts(models.Model):
-    full_name = models.CharField(max_length=100)
+    full_name = models.CharField(max_length=100, unique="True")
     address = models.CharField(max_length=255)
     phone = models.CharField(max_length=15)
     email = models.EmailField()
-    active = models.BooleanField(default=True)
+    active = models.BooleanField()
 
     def __str__(self):
         return self.full_name
+
+#Cuando se crean modelos, hay que migrar para que se apliquen los cambios (y eso implica el migrate y makemigrations).
+#Revisar que se muestren los cambios/datos usando el shell
+#Usar  href="{% url 'nombre' %}" para hacer referencia a otras rutas

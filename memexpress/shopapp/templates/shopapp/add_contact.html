@@ -1,0 +1,36 @@
+{% extends 'shopapp/base.html' %}
+{% block content %}
+
+<head>
+    <title>Agregar Contacto</title>
+    <style>
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            margin-top: 10px;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Agregar un nuevo Contacto</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Agregar Contacto</button>
+    </form>
+    <a href="{% url 'about' %}">Volver a Acerca de</a>
+</body>
+{% endblock %}
